@@ -11,18 +11,18 @@ function createCounter() {
     };
 }
 
-const counter = createCounter();
+// const counter = createCounter();
 
 // 1
-createCounter()();
+// createCounter()();
 // 1
-createCounter()();
+// createCounter()();
 // 1
-counter();
+// counter();
 // 2
-counter();
+// counter();
 // 3
-counter();
+// counter();
 
 // ==========================================
 // Currency Counter
@@ -48,7 +48,7 @@ convert(500, eurCurr);
 
 // promotion(convert(500, usdCurr));
 const res = convert(500, usdCurr);
-promotion(res);
+// promotion(res);
 
 // ==========================================
 // Empty function === undefined
@@ -62,10 +62,10 @@ function test() {
     console.log('Done');
 }
 
-test()
+// test()
 
 function doNothing() { }
-console.log(doNothing() === undefined);
+// console.log(doNothing() === undefined);
 
 // ==========================================
 // Exercises
@@ -77,7 +77,7 @@ function sayHello(name) {
     // return "Привет, " + name + "!";
 }
 
-console.log(sayHello("Антон"));
+// console.log(sayHello("Антон"));
 
 // Создайте функцию, которая принимает в себя 1 аргумент в виде целого числа и возвращает массив из трех чисел: 
 // одно на 1 меньше, сам аргумент, и число на 1 больше.
@@ -91,7 +91,7 @@ function returnNeighboringNumbers(num) {
     return [num - 1, num, num + 1];
 }
 
-console.log(returnNeighboringNumbers(5));
+// console.log(returnNeighboringNumbers(5));
 
 // Создайте функцию, которая будет принимать в себя 2 аргумента, оба - числа. 
 // Первое число - это база, второе число - это сколько раз нужно будет повторить это число в прогрессии. 
@@ -119,4 +119,43 @@ function getMathResult(num, times) {
     return str;
 }
 
-console.log(getMathResult(5, 6));
+// console.log(getMathResult(5, 6));
+
+// ==========================================
+// Вычисление площади полной поверхности куба
+// ==========================================
+
+function calculateVolumeAndArea(length) {
+    // Если в функцию попал неправильный аргумент 
+    // или вычислить значения невозможно - вернуть строку "При вычислении произошла ошибка"
+    if (typeof (length) !== 'number' || length < 0 || !Number.isInteger(length)) {
+        return 'При вычислении произошла ошибка';
+    }
+
+    const area = 6 * (length * length);
+
+    // const volume = length * length * length;
+    const volume = length ** 3;
+
+    return `Объем куба: ${volume}, площадь всей поверхности: ${area}`
+
+}
+
+console.log(calculateVolumeAndArea(5));
+
+// ==========================================
+// Функция, которая определяет номер купе по переданному ей номеру места
+// ==========================================
+
+function getCoupeNumber(seat) {
+    if (typeof (seat) !== 'number' || seat < 0 || !Number.isInteger(seat)) {
+        return 'Ошибка. Проверьте правильность введенного номера места';
+    } else if (seat === 0 || seat > 36) {
+        return 'Таких мест в вагоне не существует';
+    }
+
+    // Math.ceil(...) округляет результат вверх до ближайшего целого числа
+    return Math.ceil(seat / 4);
+}
+
+console.log(getCoupeNumber(7));
