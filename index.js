@@ -1,21 +1,32 @@
-// const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", '');
+'use strict'
 
+let numberOfFilms;
 
-// const personalMovieDB = {
-//     count: numberOfFilms,
-//     movies: {},
-//     actors: {},
-//     genres: [],
-//     privat: false,
-// }
+function start() {
+    numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", '');
 
-// let a = prompt("Один из последних просмотренных фильмов?");
-// let b = +prompt("На сколько оцените его?", '');
-// let c = prompt("Один из последних просмотренных фильмов?");
-// let d = +prompt("На сколько оцените его?", '');
+    while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+        numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", '');
+    }
+}
 
-// personalMovieDB.movies[a] = b;
-// personalMovieDB.movies[c] = d;
+start();
 
-// console.log(personalMovieDB);
+const personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false,
+}
+
+let a = prompt("Один из последних просмотренных фильмов?");
+let b = +prompt("На сколько оцените его?", '');
+let c = prompt("Один из последних просмотренных фильмов?");
+let d = +prompt("На сколько оцените его?", '');
+
+personalMovieDB.movies[a] = b;
+personalMovieDB.movies[c] = d;
+
+console.log(personalMovieDB);
 
